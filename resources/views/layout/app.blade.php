@@ -35,6 +35,8 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/themify-icons.css') }}">
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
 
 	<!-- Magnific Popup -->
 	<link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
@@ -48,6 +50,8 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- Modernizr JS -->
 	<script src="{{asset('assets/js/modernizr-2.6.2.min.js') }}"></script>
@@ -67,14 +71,15 @@
 	<!-- <div class="page-inner"> -->
         <nav class="gtco-nav" role="navigation">
             <div class="gtco-container">
-                
+				
                 <div class="row">
                     <div class="col-sm-4 col-xs-12 menu-1">
-                        
-                        <div><a href="home" style="font-size:40px; opacity:0.8;"><i>YesBus.</i></a></div>
+                        <div style="margin-top:5px"><a href="" style="font-size:40px; opacity:0.8;"><i>YesBus.</i></a></div>
                     </div>
                     <div class="col-xs-8 text-right menu-1">
+						
                         <ul>
+							
                             <li><a href="destination" style="font-size:25px;">Destination</a></li>
                             <li class="has-dropdown">
                                 <a href="#" style="font-size:25px;">Schedules</a>
@@ -86,10 +91,12 @@
                             </li>
                             <li><a href="order" style="font-size:25px;">Order</a></li>
                             <li><a href="contact" style="font-size:25px;">Contact</a></li>
+							<div style="float: right; margin-top: 5px">
+								<a class="btn btn-sm btn-dark" href="{{route('login')}}"><i class="fa fa-user" aria-hidden="true"></i>Login/Register</a>
+							</div>
                         </ul>	
                     </div>
                 </div>
-            
             </div>
         </nav>
     @yield('content')
@@ -139,7 +146,7 @@
 						<h3>Get In Touch</h3>
 						<ul class="gtco-quick-contact">
 							<li><a href="#"><i class="icon-phone"></i> +1 234 567 890</a></li>
-							<li><a href="#"><i class="icon-mail2"></i> admin09@gnail.com</a></li>
+							<li><a href="#"><i class="icon-mail2"></i> admin09@gmail.com</a></li>
 							<li><a href="#"><i class="icon-chat"></i> Live Chat</a></li>
 						</ul>
 					</div>

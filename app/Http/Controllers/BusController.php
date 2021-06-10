@@ -17,7 +17,7 @@ class BusController extends Controller
     {
         $buses = Bus::latest()->paginate(20);
 
-        return view('Buses',\compact('buses'));
+        return view('adminpages.Buses',\compact('buses'));
     }
 
     /**
@@ -55,7 +55,7 @@ class BusController extends Controller
     public function show($id)
     {
         $buses = Bus::find($id);
-        return view('adminpages.Bus.Detail', compact('buses'));
+        return view('adminpages.Bus.detail_buses', compact('buses'));
     }
 
     /**

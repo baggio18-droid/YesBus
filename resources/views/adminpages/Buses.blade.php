@@ -1,4 +1,4 @@
-@extends('layouts.tableLayout')
+@extends('layouts.adminPages')
 @section('content')
 <!-- 
 <div class="card-body">
@@ -47,13 +47,11 @@
     <td>{{ $bs ->category_id }}</td>
     <td>{{ $bs ->capacity }}</td>
     <td>
-    <form action="{{ route('buses.destroy',['buses'=>$bs->id]) }}" method="POST">
+    <form action="{{ route('buses.destroy', $bs->id) }}" method="POST">
    
-    <a class="btn btn-info" href="{{ route('buses.show',$bs->id) }}">Show</a>
-    <a class="btn btn-primary" href="{{ route('buses.edit',$bs->id) }}">Edit</a>
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-info" href="{{ route('buses.show', $bs->id) }}">Show</a>
+    <a class="btn btn-primary" href="{{ route('buses.edit', $bs->id) }}">Edit</a>
+    <a class="btn btn-danger" href="{{ route('buses.destroy', $bs->id) }} ">Delete</button>
     </form>
     </td>
     </tr>

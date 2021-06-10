@@ -22,7 +22,7 @@
     <h2>YesBus List</h2>
     </div>
     <div class="float-right my-2">
-    <a class="btn btn-success" href="{{ route('buses.create') }}"> Input Bus Data</a>
+    <a class="btn btn-success" href="{{ route('routes.create') }}"> Input Bus Route Data</a>
     </div>
     </div>
     </div>
@@ -36,26 +36,20 @@
     <table class="table table-bordered">
     <tr>
     <th>Name</th>
-    <th>Route</th>
-    <th>Category</th>
-    <th>Capacity</th>
+    <th>Departure</th>
+    <th>Destination</th>
     <th width="280px">Action</th>
     </tr>
-    @foreach ($buses as $bs)
+    @foreach ($routes as $route)
     <tr>
    
-    <td>{{ $bs ->name }}</td>
-    <td>{{ $bs ->routes->name }}</td>
-    @if( $bs-> category == 1)
-    <td>Premium</td>
-    @else
-    <td>Regular</td>
-    @endif
-    <td>{{ $bs ->capacity }}</td>
+    <td>{{ $route ->name }}</td>
+    <td>{{ $route ->departure }}</td>
+    <td>{{ $route ->destination }}</td>
     <td>
-    <a class="btn btn-info" href="{{ route('buses.show', $bs->id) }}">Show</a>
-    <a class="btn btn-primary" href="{{ route('buses.edit', $bs->id) }}">Edit</a>
-    <a class="btn btn-danger" href="{{ route('buses.destroy', $bs->id) }} ">Delete</button>
+    <a class="btn btn-info" href="{{ route('routes.show', $route->id) }}">Show</a>
+    <a class="btn btn-primary" href="{{ route('routes.edit', $route->id) }}">Edit</a>
+    <a class="btn btn-danger" href="{{ route('routes.destroy', $route->id) }} ">Delete</button>
     </td>
     </tr>
     @endforeach

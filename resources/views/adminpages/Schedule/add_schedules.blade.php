@@ -42,6 +42,10 @@
  <label>Scheduled Arrival Time</label>
  <input type="datetime-local" name = "scheduled_arrival_time" class="form-control">
  </div>
+ <div>
+ <label>Price</price>
+ <input type="number" name = "price" class="form-control">
+ </div>
  <button type="submit" class="btn btn-primary">Submit</button>
  </form>
  </div>

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Route;
 use App\Models\Bus;
-use App\Models\Schedule;
 
-class ScheduleController extends Controller
+class RouteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        $schedules = Schedule::latest()->paginate(20);
+        $routes = Route::latest()->paginate(20);
 
-        return view('adminpages.Schedules', compact('schedules'));
+        return view('adminpages.routes', compact('routes'));
     }
 
     /**
@@ -27,9 +27,9 @@ class ScheduleController extends Controller
      */
     public function create()
     {
-        $buses = Bus::latest()->get();
+        $routes = Route::latest()->get();
 
-        return \view('adminpages.Schedule.add_schedules', compact('buses'));
+        return \view('adminpages.Route.add_routes', compact('routes'));
     }
 
     /**
@@ -40,13 +40,11 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        $schedules = new Schedule;
-        $schedules->name = $request->name;
-        $schedules->bus_id = $request->bus_id;
-        $schedules->departure_time = $request->departure_time;
-        $schedules->scheduled_arrival_time = $request->scheduled_arrival_time;
-        $schedules->price = $request->price;
-        $schedules->save();
+        $routes = new Route;
+        $routes->name = $request->name;
+        $routes->departure = $request->departure;
+        $routes->destination = $request->destination;
+        $routes->save();
         return back();
     }
 
@@ -58,8 +56,8 @@ class ScheduleController extends Controller
      */
     public function show($id)
     {
-        $schedules = Schedule::find($id);
-        return view('adminpages.Schedule.detail_schedules', compact('schedules'));
+        $routes = Route::find($id);
+        return view('adminpages.Route.detail_routes', compact('routes'));
     }
 
     /**
@@ -70,9 +68,8 @@ class ScheduleController extends Controller
      */
     public function edit($id)
     {
-        $schedules = Schedule::find($id);
-        $buses = Bus::latest()->get();
-        return view('adminpages.Schedule.edit_schedules', \compact('schedules','buses'));
+        $routes = Route::find($id);
+        return view('adminpages.Route.edit_routes', \compact('routes'));
     }
 
     /**
@@ -84,8 +81,8 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $schedules=Schedule::find($id);
-        $schedules->update($request->all());
+        $routes=Route::find($id);
+        $routes->update($request->all());
         return back();
     }
 
@@ -97,8 +94,8 @@ class ScheduleController extends Controller
      */
     public function destroy($id)
     {
-        $schedules = Schedule::find($id);
-        $schedules->delete();
+        $routes = Route::find($id);
+        $routes->delete();
         return back();
     }
 }

@@ -20,22 +20,30 @@
  </ul>
  </div>
  @endif
- <form method="post" action="{{ route('buses.update', $Bus->id) }}" id="myForm">
+ <form method="post" action="{{ route('buses.update', $buses->id) }}" id="myForm">
  @csrf
- @method('PUT')
  <div class="form-group">
  <label for="Name">Name</label>
- <input type="text" name="name" class="form-control" id="name" value="{{ $Bus->name }}" ariadescribedby="Name" >
+ <input type="text" name="name" class="form-control" id="name" value="{{ $buses->name }}"aria-describedby="Name" >
+ </div>
+ <label for="route">Route</label>
+ <div class="form-group">
+ <select name="route_id" class="form-control">
+ @foreach ($routes as $route)
+ <option value="{{$route->id}}">{{"$route->name"}}</option>
+ @endforeach
+ </select>
  </div>
  <div class="form-group">
- <label for="Category_id">Category-Id</label>
- <input type="number" name="category_id" class="form-control" id="category_id" value="{{ $Bus-
->category_id }}" aria-describedby="Name" >
+ <label for="Category_id">Category</label>
+ <select name = "category">
+ <option value="0">Regular</option>
+ <option value="1">Premium</option>
+ </select>
  </div>
  <div class="form-group">
  <label for="Capacity">Capacity</label>
- <input type="number" name="Class" class="form-control" id="Capacity" value="{{ $Bus-
->capacity }}" aria-describedby="Capacity" >
+ <input type="number" name="capacity" class="form-control" id="capacity" value="{{ $buses->capacity }}"ariadescribedby="Capacity" >
  </div>
  <button type="submit" class="btn btn-primary">Submit</button>
  </form>

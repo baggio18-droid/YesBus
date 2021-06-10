@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Bus;
+use App\Models\Route;
 
 class BusController extends Controller
 {
@@ -27,7 +28,8 @@ class BusController extends Controller
      */
     public function create()
     {
-    return view('adminpages.Bus.add_buses');
+        $routes = Route::latest()->get();
+    return view('adminpages.Bus.add_buses', \compact('routes'));
     }
 
     /**
@@ -40,6 +42,7 @@ class BusController extends Controller
     {
         $buses = new Bus;
         $buses->name = $request->name;
+        $buses->route_id = $request->route_id;
         $buses->category= $request->category;
         $buses->capacity = $request->capacity;
         $buses->save();
@@ -67,7 +70,8 @@ class BusController extends Controller
     public function edit($id)
     {
         $buses = Bus::find($id);
-        return view('adminpages.Bus.edit_buses', \compact('buses'));
+        $routes = Route::latest()->get();
+        return view('adminpages.Bus.edit_buses', \compact('buses', 'routes'));
     }
 
     /**

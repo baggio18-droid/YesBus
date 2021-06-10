@@ -20,6 +20,7 @@ class CreateSchedulesTable extends Migration
             $table->foreign('bus_id')->references('id')->on('buses')->onDelete('cascade');
             $table->datetime('departure_time');
             $table->datetime('scheduled_arrival_time');
+            $table->integer('price');
             $table->timestamps();
         });
     }

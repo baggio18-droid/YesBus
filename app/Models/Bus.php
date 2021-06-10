@@ -9,14 +9,14 @@ class Bus extends Model
 {
     use HasFactory;
 
-    protected $fillables = [
+    protected $fillable = [
         'name',
         'category_id',
         'capacity',
     ];
 
-    public function categories(){
-        return $this->belongsTo('App\Models\Category');
+    public function routes(){
+        return $this->belongsTo('App\Models\Route', 'route_id');
     }
     public function schedules(){
         return $this->belongsTo('App\Models\Schedule');

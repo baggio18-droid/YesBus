@@ -68,6 +68,7 @@
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="/admin/adminPages/bus">Buses</a>
+                                            <a class="nav-link" href="/admin/adminPages/route">Routes</a>
                                             <a class="nav-link" href="/admin/adminPages/schedule">Schedules</a>
                                             <a class="nav-link" href="/admin/adminPages/order">Orders</a>
                                         </nav>

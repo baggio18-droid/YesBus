@@ -7,7 +7,7 @@
  <div class="row justify-content-center align-items-center">
  <div class="card" style="width: 24rem;">
  <div class="card-header">
- Add Bus
+ Edit Bus Data
  </div>
  <div class="card-body">
  @if ($errors->any())
@@ -20,35 +20,24 @@
  </ul>
  </div>
  @endif
- <form method="post" action="{{ route('buses.store') }}" id="myForm">
+ <form method="post" action="{{ route('routes.update', $routes->id) }}" id="myForm">
  @csrf
  <div class="form-group">
  <label for="Name">Name</label>
- <input type="text" name="name" class="form-control" id="name" aria-describedby="Name" >
- </div>
- <label for="route">Route</label>
- <div class="form-group">
- <select name="route_id" class="form-control">
- @foreach ($routes as $route)
- <option value="{{$route->id}}">{{"$route->name"}}</option>
- @endforeach
- </select>
+ <input type="text" name="name" class="form-control" id="name" value="{{ $routes->name }}" ariadescribedby="Name" >
  </div>
  <div class="form-group">
- <label for="Category_id">Category</label>
- <select name = "category">
- <option value="0">Regular</option>
- <option value="1">Premium</option>
- </select>
+ <label for="Name">Departure</label>
+ <input type="text" name="departure" class="form-control" id="departure" value="{{ $routes->departure }}" aria-describedby="Name" >
  </div>
  <div class="form-group">
- <label for="Capacity">Capacity</label>
- <input type="number" name="capacity" class="form-control" id="capacity" ariadescribedby="Capacity" >
+ <label for="Name">Destination</label>
+ <input type="text" name="destination" class="form-control" id="destination" value="{{ $routes->destination }}" aria-describedby="Name" >
  </div>
  <button type="submit" class="btn btn-primary">Submit</button>
  </form>
  </div>
  </div>
  </div>
- </div>
+</div>
 @endsection

@@ -6,6 +6,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\RouteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,3 +51,12 @@ Route::get('/admin/adminPages/Schedule/detail_schedules/{id}', [ScheduleControll
 Route::get('/admin/adminPages/Schedule/edit_schedules/{id}', [ScheduleController::class, 'edit'])->name('schedules.edit');
 Route::post('/admin/adminPages/Schedule/edit_schedules/{id}', [ScheduleController::class, 'update'])->name('schedules.update');
 Route::get('/admin/adminPages/Schedule/add_schedules/{id}', [ScheduleController::class, 'destroy'])->name('schedules.destroy');
+
+//Route Data
+Route::get('/admin/adminPages/route', [RouteController::class, 'index'])->name('routes');
+Route::get('/admin/adminPages/Route/add_routes', [RouteController::class, 'create'])->name('routes.create');
+Route::post('/admin/adminPages/Route/add_routes', [RouteController::class, 'store'])->name('routes.store');
+Route::get('/admin/adminPages/Route/detail_routes/{id}', [RouteController::class, 'show'])->name('routes.show');
+Route::get('/admin/adminPages/Route/edit_routes/{id}', [RouteController::class, 'edit'])->name('routes.edit');
+Route::post('/admin/adminPages/Route/edit_routes/{id}', [RouteController::class, 'update'])->name('routes.update');
+Route::get('/admin/adminPages/Route/add_routes/{id}', [RouteController::class, 'destroy'])->name('routes.destroy');

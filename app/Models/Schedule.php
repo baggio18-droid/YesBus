@@ -9,19 +9,15 @@ class Schedule extends Model
 {
     use HasFactory;
 
-    protected $fillables =[
+    protected $fillable =[
         'bus_id',
-        'placeDeparture_id',
-        'placeDestination_id',
-        'departureTime',
-        'arrivalTime',
+        'name',
+        'departure_time',
+        'scheduled_arrival_time',
         'Price'
     ];
     public function buses(){
-        return $this->belongsTo('App\Models\Bus');
-    }
-    public function places(){
-        return $this->hasOne('App\Models\Place');
+        return $this->belongsTo('App\Models\Bus', 'bus_id');
     }
 
     public function orders(){

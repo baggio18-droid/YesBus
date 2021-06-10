@@ -32,12 +32,9 @@
     <td>{{ $sche ->departure_time }}</td>
     <td>{{ $sche ->scheduled_arrival_time }}</td>
     <td>
-    <form action="{{ route('buses.destroy', $bs->id) }}" method="POST">
-   
-    <a class="btn btn-info" href="{{ route('buses.show', $bs->id) }}">Show</a>
-    <a class="btn btn-primary" href="{{ route('buses.edit', $bs->id) }}">Edit</a>
-    <a class="btn btn-danger" href="{{ route('buses.destroy', $bs->id) }} ">Delete</button>
-    </form>
+    <a class="btn btn-info" href="{{ route('schedules.show', $sche->id) }}">Show</a>
+    <a class="btn btn-primary" href="{{ route('schedules.edit', $sche->id) }}">Edit</a>
+    <a class="btn btn-danger" href="{{ route('schedules.destroy', $sche->id) }} ">Delete</button>
     </td>
     </tr>
     @endforeach

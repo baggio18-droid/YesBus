@@ -11,6 +11,7 @@
  <ul class="list-group list-group-flush">
  <li class="list-group-item"><b>Name: </b>{{$schedules->name}}</li>
  <li class="list-group-item"><b>Bus: </b>{{$schedules->buses->name}}</li>
+ <li class="list-group-item"><b>Route: </b>{{$schedules->routes->name}}</li>
  <li class="list-group-item"><b>Departure: </b>{{$schedules->departure_time}}</li>
  <li class="list-group-item"><b>Arrival: </b>{{$schedules->scheduled_arrival_time}}</li>
 

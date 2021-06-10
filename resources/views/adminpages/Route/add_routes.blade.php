@@ -20,30 +20,19 @@
  </ul>
  </div>
  @endif
- <form method="post" action="{{ route('buses.store') }}" id="myForm">
+ <form method="post" action="{{ route('routes.store') }}" id="myForm">
  @csrf
  <div class="form-group">
  <label for="Name">Name</label>
  <input type="text" name="name" class="form-control" id="name" aria-describedby="Name" >
  </div>
- <label for="route">Route</label>
  <div class="form-group">
- <select name="route_id" class="form-control">
- @foreach ($routes as $route)
- <option value="{{$route->id}}">{{"$route->name"}}</option>
- @endforeach
- </select>
+ <label for="Name">Departure</label>
+ <input type="text" name="departure" class="form-control" id="departure" aria-describedby="Name" >
  </div>
  <div class="form-group">
- <label for="Category_id">Category</label>
- <select name = "category">
- <option value="0">Regular</option>
- <option value="1">Premium</option>
- </select>
- </div>
- <div class="form-group">
- <label for="Capacity">Capacity</label>
- <input type="number" name="capacity" class="form-control" id="capacity" ariadescribedby="Capacity" >
+ <label for="Name">Destination</label>
+ <input type="text" name="destination" class="form-control" id="destination" aria-describedby="Name" >
  </div>
  <button type="submit" class="btn btn-primary">Submit</button>
  </form>

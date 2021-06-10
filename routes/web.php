@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\OrdersController;
-
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BusController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,22 +16,22 @@ use App\Http\Controllers\OrdersController;
 |
 */
 
-//Route::get('/home', [PagesController::class, 'home']);
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/destination', [PagesController::class, 'destination']);
 Route::get('/order', [PagesController::class, 'order']);
 Route::get('/schedules', [PagesController::class, 'schedules']);
 Route::get('/contact', [PagesController::class, 'contact']);
 
+Route::get('/admin/adminPages', [DashboardController::class, 'home']);
+Route::get('/admin/adminPages/bus', [DashboardController::class, 'buses']);
+Route::get('/admin/adminPages/order', [DashboardController::class, 'orders']);
+Route::get('/admin/adminPages/schedule', [DashboardController::class, 'schedules']);
+Route::get('/admin/adminPages/category', [DashboardController::class, 'categories']);
 
-
-
-Auth::routes();
-
-Route::get('/', function(){
-    return view('welcome');
-});
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/order',[App\Http\Controllers\OrdersController::class, 'index'])->name('order');
-//Route::get('/order/create', [App\Http\Controllers\OrdersController::class, 'create'])->name('createForm');
-Route::post('/orderaction', [App\Http\Controllers\OrdersController::class, 'storeOrder']);
+Route::resource('buses', BusController::class);

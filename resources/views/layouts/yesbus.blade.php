@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Traveler by freehtml5.co
-	Twitter: http://twitter.com/fh5co
-	URL: http://freehtml5.co
--->
 <html>
 	<head>
 	<meta charset="utf-8">
@@ -74,7 +69,7 @@
 				
                 <div class="row">
                     <div class="col-sm-4 col-xs-12 menu-1">
-                        <div style="margin-top:5px"><a href="" style="font-size:40px; opacity:0.8;"><i>YesBus.</i></a></div>
+                        <div style="margin-top:5px"><a href="/" style="font-size:40px; opacity:0.8;"><i>YesBus.</i></a></div>
                     </div>
                     <div class="col-xs-8 text-right menu-1">
 						
@@ -92,7 +87,7 @@
                             <li><a href="order" style="font-size:25px;">Order</a></li>
                             <li><a href="contact" style="font-size:25px;">Contact</a></li>
 							<div style="float: right; margin-top: 5px">
-								<a class="btn btn-sm btn-dark" href="{{route('login')}}"><i class="fa fa-user" aria-hidden="true"></i>Login/Register</a>
+								<a class="btn btn-sm btn-dark" href="{{route('login')}}"><i class="fa fa-user" aria-hidden="true"></i>Admin</a>
 							</div>
                         </ul>	
                     </div>

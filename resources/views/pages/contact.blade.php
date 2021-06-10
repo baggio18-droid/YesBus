@@ -1,7 +1,13 @@
-@extends('layout.app')
+@extends('layouts.yesbus')
 @section('content')
+
 <!DOCTYPE HTML>
-	<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(assets/images/img_bg_3.jpg)">
+<html>
+
+	<body>	
+	<div class="gtco-loader"></div>
+	<div id="page">
+	<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/img_bg_3.jpg)">
 		<div class="overlay"></div>
 		<div class="gtco-container">
 			<div class="row">
@@ -77,8 +83,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>	
 	</body>
 </html>
-
 @endsection

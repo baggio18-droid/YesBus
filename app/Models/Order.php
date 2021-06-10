@@ -16,7 +16,7 @@ class Order extends Model
         'phone',
     ];
 
-    public function orders(){
-        return $this->belongsTo('App\Models\Schedule');
+    public function routes(){
+        return $this->belongsTo('App\Models\Route', 'route_id');
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\RouteController;
+use App\Http\Controllers\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,3 +61,12 @@ Route::get('/admin/adminPages/Route/detail_routes/{id}', [RouteController::class
 Route::get('/admin/adminPages/Route/edit_routes/{id}', [RouteController::class, 'edit'])->name('routes.edit');
 Route::post('/admin/adminPages/Route/edit_routes/{id}', [RouteController::class, 'update'])->name('routes.update');
 Route::get('/admin/adminPages/Route/add_routes/{id}', [RouteController::class, 'destroy'])->name('routes.destroy');
+
+//Client Order Data
+Route::get('/admin/adminPages/order', [OrderController::class, 'index'])->name('orders');
+Route::get('/order', [OrderController::class, 'create'])->name('orders.create');
+Route::post('/order', [OrderController::class, 'store'])->name('orders.store');
+//Route::get('/admin/adminPages/Route/detail_routes/{id}', [RouteController::class, 'show'])->name('routes.show');
+//Route::get('/admin/adminPages/Route/edit_routes/{id}', [RouteController::class, 'edit'])->name('routes.edit');
+//Route::post('/admin/adminPages/Route/edit_routes/{id}', [RouteController::class, 'update'])->name('routes.update');
+//Route::get('/admin/adminPages/Route/add_routes/{id}', [RouteController::class, 'destroy'])->name('routes.destroy');

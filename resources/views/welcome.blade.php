@@ -14,63 +14,6 @@
 						<div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
 							<h1>Planing Trip To Anywhere in Indonesia?</h1>	
 						</div>
-						<div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
-							<div class="form-wrap">
-								<div class="tab">
-									
-									<div class="tab-content">
-										<div class="tab-content-inner active" data-content="signup">
-											<h3>Book Your Trip</h3>
-											<form method="POST" action="">
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="fullname">Your Name</label>
-														<input type="text" name="name" class="form-control">
-													</div>
-												</div>
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="depart">Departure</label>
-														<select name="departure"  id="departure" class="form-control">
-															<option value="">Departure</option>
-															<option value="">Malang</option>
-															<option value="">Jakarta</option>
-															<option value="">Yogyakarta</option>
-														</select>
-													</div>
-												</div>
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="destination">Destination</label>
-														<select name="destination" id="destination" class="form-control">
-															<option value="">Destination</option>
-															<option value="">Malang</option>
-															<option value="">Surabya</option>
-															<option value="">Jakarta</option>
-														</select>
-													</div>
-												</div>
-												
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="date-start">Date Travel</label>
-														<input type="text" date="datetravel" id="date-start" class="form-control">
-													</div>
-												</div>
-
-												<div class="row form-group">
-													<div class="col-md-12">
-														<input type="submit" class="btn btn-primary btn-block" value="Submit">
-													</div>
-												</div>
-											</form>	
-										</div>
-
-										
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 							
 					

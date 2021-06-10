@@ -20,11 +20,11 @@
  </ul>
  </div>
  @endif
- <form method="post" action="{{ route('orders.store') }}" id="myForm">
+ <form method="post" action="{{ route('order.store', $orders->id) }}" id="myForm">
  @csrf
  <div class="form-group">
  <label for="Name">Customer Name</label>
- <input type="text" name="CustomerName" class="form-control" id="CustomerName" aria-describedby="Name" >
+ <input type="text" name="CustomerName" class="form-control" id="CustomerName" value = "{{ $orders->CustomerName }}" aria-describedby="Name" >
  </div>
  <label> Destination</label>
  <div class="form-group">
@@ -36,12 +36,15 @@
  </div>
  <div class="form-group">
  <label for="Name">email</label>
- <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+ <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value = "{{ $orders->email }}" required autocomplete="email" autofocus>
  </div>
  <div class="form-group">
  <label>Phone Number</label>
- <input type="text" name="phone" class="form-control" id="phone" aria-describedby="Name" >
+ <input type="text" name="phone" class="form-control" id="phone" value = "{{ $orders->phone }}" aria-describedby="Name" >
  </div>
+ <div>
+ <label> Price </label>
+ <h4 aria-describedby="Name"> {{"$orders->price"}}
  <button type="submit" class="btn btn-primary">Submit</button>
  </form>
  </div>

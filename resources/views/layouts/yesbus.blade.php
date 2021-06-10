@@ -84,7 +84,7 @@
                                     
                                 </ul>
                             </li>
-                            <li><a href="order" style="font-size:25px;">Order</a></li>
+                            <li><a href="{{ route('orders.create') }}" style="font-size:25px;">Order</a></li>
                             <li><a href="contact" style="font-size:25px;">Contact</a></li>
 							<div style="float: right; margin-top: 5px">
 								<a class="btn btn-sm btn-dark" href="{{route('login')}}"><i class="fa fa-user" aria-hidden="true"></i>Admin</a>

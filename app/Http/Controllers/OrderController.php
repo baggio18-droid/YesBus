@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Order;
+use App\Models\Route;
 
 class OrderController extends Controller
 {
@@ -13,7 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::latest()->paginate(20);
+
+        return view('adminpages.Orders',\compact('orders'));
     }
 
     /**
@@ -23,7 +27,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $routes = Route::latest()->get();
+        return view('pages.order', \compact('routes'));
     }
 
     /**
@@ -34,7 +39,13 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $orders = new Order;
+        $orders->CustomerName = $request->CustomerName;
+        $orders->route_id = $request->route_id;
+        $orders->email= $request->email;
+        $orders->phone = $request->phone;
+        $orders->save();
+        return back();
     }
 
     /**

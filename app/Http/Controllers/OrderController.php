@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Route;
 use App\Models\Schedule;
+use \PDF;
 
 class OrderController extends Controller
 {
@@ -110,5 +111,13 @@ class OrderController extends Controller
         $orders = Order::find($id);
         $orders->delete();
         return back();
+    }
+    public function print_pdf($id){
+        $orders = Order::with('schedules')->find($id);
+        $bus = Bus::find($orders->schedules->bus_id);
+        $route = Route::find($bus->route_id);
+        //$pdf = PDF::loadview('adminpages.order.detail_order', compact('orders', 'route', 'bus'));
+        //return $pdf->stream();
+
     }
 }

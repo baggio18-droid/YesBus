@@ -27,10 +27,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/destination', [PagesController::class, 'destination']);
-Route::get('/order', [PagesController::class, 'order']);
+Route::get('/order', [PagesController::class, 'order'])->name('Order');
 Route::get('/schedules', [PagesController::class, 'schedules']);
 Route::get('/contact', [PagesController::class, 'contact']);
-
 Route::get('/admin/adminPages', [DashboardController::class, 'home']);
 Route::get('/admin/adminPages/order', [DashboardController::class, 'orders']);
 Route::get('/admin/adminPages/category', [DashboardController::class, 'categories']);
@@ -70,3 +69,5 @@ Route::get('/admin/adminPages/Order/detail_orders/{id}', [OrderController::class
 Route::get('/admin/adminPages/Order/edit_orders/{id}', [OrderController::class, 'edit'])->name('orders.edit');
 Route::post('/admin/adminPages/Order/edit_orders/{id}', [OrderController::class, 'update'])->name('orders.update');
 Route::get('/admin/adminPages/Order/add_orders/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
+//Route::get('/admin/adminPages/Order/detail_orders/{id}', [OrderController::class, 'print_pdf'])->name('print_pdf');
+

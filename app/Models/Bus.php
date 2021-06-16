@@ -12,6 +12,7 @@ class Bus extends Model
     protected $fillable = [
         'name',
         'category_id',
+        'route_id',
         'capacity',
     ];
 
@@ -20,5 +21,8 @@ class Bus extends Model
     }
     public function schedules(){
         return $this->belongsTo('App\Models\Schedule');
+    }
+    public function orders(){
+        return $this->belongsTo('App\Models\Order');
     }
 }

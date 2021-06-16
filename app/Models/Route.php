@@ -12,6 +12,9 @@ class Route extends Model
     public function buses(){
         return $this->hasMany('App\Models\Bus');
     }
+    public function schedules(){
+        return $this->hasMany('App\Models\Bus');
+    }
     public function orders(){
         return $this->hasMany('App\Models\Order');
     }

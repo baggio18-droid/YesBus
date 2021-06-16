@@ -10,7 +10,11 @@
  <div class="card-body">
  <ul class="list-group list-group-flush">
  <li class="list-group-item"><b>Name: </b>{{$buses->name}}</li>
- <li class="list-group-item"><b>Category: </b>{{$buses->category_id}}</li>
+ @if($buses->category)
+ <li class="list-group-item"><b>Category: </b>Premium</li>
+ @else
+ <li class="list-group-item"><b>Category: </b>Regular</li>
+ @endif
  <li class="list-group-item"><b>Capacity: </b>{{$buses->capacity}}</li>
  </ul>
  </div>

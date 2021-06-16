@@ -19,16 +19,24 @@
     <table class="table table-bordered">
     <tr>
     <th>Name</th>
-    <th>Bus ID</th>
+    <th>Bus Name</th>
+    <th>Route Name</th>
+    <th>Price </th>
     <th>Departure Time</th>
-    <th> Expected Arrival Time</th>
+    <th>Expected Arrival Time</th>
     <th width="280px">Action</th>
     </tr>
     @foreach ($schedules as $sche)
     <tr>
    
-    <td>{{ $sche->buses->name }}</td>
-    <td>{{ $sche ->bus_id }}</td>
+    <td>{{ $sche->name }}</td>
+    <td>{{ $sche ->buses->name }}</td>
+    @foreach ($routes as $route)
+    @if ($sche->buses->route_id  == $route->id)
+    <td>{{$route->name}}</td>
+    @endif
+    @endforeach
+    <td>{{ $sche ->price }}</td>
     <td>{{ $sche ->departure_time }}</td>
     <td>{{ $sche ->scheduled_arrival_time }}</td>
     <td>

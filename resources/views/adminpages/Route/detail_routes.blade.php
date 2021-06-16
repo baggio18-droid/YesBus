@@ -9,12 +9,12 @@
  </div>
  <div class="card-body">
  <ul class="list-group list-group-flush">
- <li class="list-group-item"><b>Name: </b>{{$buses->name}}</li>
- <li class="list-group-item"><b>Category: </b>{{$buses->category_id}}</li>
- <li class="list-group-item"><b>Capacity: </b>{{$buses->capacity}}</li>
+ <li class="list-group-item"><b>Name: </b>{{$routes->name}}</li>
+ <li class="list-group-item"><b>Departure: </b>{{$routes->departure}}</li>
+ <li class="list-group-item"><b>Destination: </b>{{$routes->destination}}</li>
  </ul>
  </div>
- <a class="btn btn-success mt-3" href="{{ route('buses') }}">Back</a>
+ <a class="btn btn-success mt-3" href="{{ route('routes') }}">Back</a>
  </div>
  </div>
 </div>

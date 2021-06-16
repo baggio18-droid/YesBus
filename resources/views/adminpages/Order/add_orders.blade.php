@@ -20,35 +20,29 @@
  </ul>
  </div>
  @endif
- <form method="post" action="{{ route('schedules.store') }}" id="myForm">
+ <form method="post" action="{{ route ('orders.store') }}" id="myForm">
  @csrf
  <div class="form-group">
- <label for="Name">Name</label>
+ <label for="Name">Customer Name</label>
  <input type="text" name="name" class="form-control" id="name" aria-describedby="Name" >
  </div>
- <label for="Bus">Bus</label>
  <div class="form-group">
- <select name="bus_id" class="form-control">
- @foreach ($buses as $bus)
- @foreach ($routes as $route)
- @if ($bus->route_id == $route->id)
- <option value="{{$bus->id}}">Bus: {{"$bus->name"}} - Route: {{"$route->name"}}</option>
- @endif
- @endforeach
- @endforeach
- </select>
+<label for="Schedule">Schedule</label>
+<select name="schedule_id" class="form-control">
+    @foreach ($schedules as $s)
+    <option value="{{$s->id}}">Schedule: {{"$s->name"}}</option>
+    @endforeach
+</select>
+</div>
  <div class="form-group">
- <label>Departure Time</label>
- <input type="datetime-local" name = "departure_time" class="form-control">
+ <label>Email</label>
+ <input type="email" name = "email" class="form-control">
  </div>
  <div class="form-group">
- <label>Scheduled Arrival Time</label>
- <input type="datetime-local" name = "scheduled_arrival_time" class="form-control">
+ <label>Phone</label>
+ <input type="text" name = "phone" class="form-control">
  </div>
  <div>
- <label>Price</label>
- <input type="number" name = "price" class="form-control">
- </div>
  <button type="submit" class="btn btn-primary">Submit</button>
  </form>
  </div>

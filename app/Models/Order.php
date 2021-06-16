@@ -15,8 +15,14 @@ class Order extends Model
         'email',
         'phone',
     ];
+    public function buses(){
+        return $this->belongsTo('App\Models\Bus', 'bus_id');
+    }
 
     public function routes(){
         return $this->belongsTo('App\Models\Route', 'route_id');
+    }
+    public function schedules(){
+        return $this->belongsTo('App\Models\Schedule', 'schedule_id');
     }
 }

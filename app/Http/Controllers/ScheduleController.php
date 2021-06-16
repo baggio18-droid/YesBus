@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bus;
+use App\Models\Route;
 use App\Models\Schedule;
 
 class ScheduleController extends Controller
@@ -15,9 +16,9 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        $schedules = Schedule::latest()->paginate(20);
-
-        return view('adminpages.Schedules', compact('schedules'));
+        $schedules = Schedule::with('buses')->latest()->paginate(20);
+        $routes = Route::all();
+        return view('adminpages.Schedules', compact('schedules', 'routes'));
     }
 
     /**
@@ -28,8 +29,8 @@ class ScheduleController extends Controller
     public function create()
     {
         $buses = Bus::latest()->get();
-
-        return \view('adminpages.Schedule.add_schedules', compact('buses'));
+        $routes = Route::latest()->get();
+        return \view('adminpages.Schedule.add_schedules', compact('buses', 'routes'));
     }
 
     /**
@@ -58,8 +59,9 @@ class ScheduleController extends Controller
      */
     public function show($id)
     {
-        $schedules = Schedule::find($id);
-        return view('adminpages.Schedule.detail_schedules', compact('schedules'));
+        $schedules = Schedule::with('buses')->find($id);
+        $route = Route::find($schedules->buses->route_id);
+        return view('adminpages.Schedule.detail_schedules', compact('schedules', 'route'));
     }
 
     /**
@@ -72,7 +74,8 @@ class ScheduleController extends Controller
     {
         $schedules = Schedule::find($id);
         $buses = Bus::latest()->get();
-        return view('adminpages.Schedule.edit_schedules', \compact('schedules','buses'));
+        $routes = Route::latest()->get();
+        return view('adminpages.Schedule.edit_schedules', \compact('schedules','buses', 'routes'));
     }
 
     /**

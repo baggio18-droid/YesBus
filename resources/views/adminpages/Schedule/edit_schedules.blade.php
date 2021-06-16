@@ -30,20 +30,24 @@
  <div class="form-group">
  <select name="bus_id" class="form-control">
  @foreach ($buses as $bus)
- <option value="{{$bus->id}}">{{"$bus->name"}}</option>
+ @foreach ($routes as $route)
+ @if ($bus->route_id == $route->id)
+ <option value="{{$bus->id}}">Bus: {{"$bus->name"}} - Route: {{"$route->name"}}</option>
+ @endif
+ @endforeach
  @endforeach
  </select>
  </div>
  <div class="form-group">
- <label>Departure Time</label>
+ <label>Departure Time: {{ $schedules->departure_time }}</label>
  <input type="datetime-local" name = "departure_time" value = "{{ $schedules->departure_time }}" class="form-control">
  </div>
  <div class="form-group">
- <label>Scheduled Arrival Time</label>
+ <label>Scheduled Arrival Time: {{ $schedules->scheduled_arrival_time }}</label>
  <input type="datetime-local" name = "scheduled_arrival_time" value = "{{ $schedules->scheduled_arrival_time }}" class="form-control">
  </div>
  <div>
- <label>Price</price>
+ <label>Price</label>
  <input type="number" name = "price" value = "{{ $schedules->price }}" class="form-control">
  </div>
  <button type="submit" class="btn btn-primary">Submit</button>

@@ -47,9 +47,9 @@
     <td>{{ $route ->departure }}</td>
     <td>{{ $route ->destination }}</td>
     <td>
-    <a class="btn btn-info" href="{{ route('routes.show', $route->id) }}">Show</a>
     <a class="btn btn-primary" href="{{ route('routes.edit', $route->id) }}">Edit</a>
     <a class="btn btn-danger" href="{{ route('routes.destroy', $route->id) }} ">Delete</button>
+    <a class="btn btn-info" href="{{ route('routes.show', $route->id) }}">Show</a>
     </td>
     </tr>
     @endforeach

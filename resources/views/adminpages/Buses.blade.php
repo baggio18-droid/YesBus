@@ -17,7 +17,7 @@
 </div>
 -->
 <div class="row">
-    <div class="col-lg-12 margin-tb">
+    <div class="col-lg-10 margin-tb">
     <div class="pull-left mt-2">
     <h2>YesBus List</h2>
     </div>

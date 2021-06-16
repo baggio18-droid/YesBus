@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bus;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Route;
+use App\Models\Schedule;
 
 class OrderController extends Controller
 {
@@ -16,8 +18,9 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::latest()->paginate(20);
-
-        return view('adminpages.Orders',\compact('orders'));
+        $routes = Route::all();
+        $schedules = Schedule::with('buses')->latest()->get();
+        return view('adminpages.Orders',\compact('orders', 'routes', 'schedules'));
     }
 
     /**
@@ -27,8 +30,9 @@ class OrderController extends Controller
      */
     public function create()
     {
+        $schedules = Schedule::latest()->get();
         $routes = Route::latest()->get();
-        return view('pages.order', \compact('routes'));
+        return view('adminpages.Order.add_orders', \compact('routes', 'schedules'));
     }
 
     /**
@@ -40,8 +44,8 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $orders = new Order;
-        $orders->CustomerName = $request->CustomerName;
-        $orders->route_id = $request->route_id;
+        $orders->CustomerName = $request->name;
+        $orders->schedule_id = $request->schedule_id;
         $orders->email= $request->email;
         $orders->phone = $request->phone;
         $orders->save();
@@ -56,7 +60,10 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $orders = Order::with('schedules')->find($id);
+        $bus = Bus::find($orders->schedules->bus_id);
+        $route = Route::find($bus->route_id);
+        return view('adminpages.order.detail_order', compact('orders', 'route', 'bus'));
     }
 
     /**
@@ -67,7 +74,11 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $orders = Order::with('schedules')->find($id);
+        $bus = Bus::find($orders->schedules->bus_id);
+        $route = Route::find($bus->route_id);
+        $schedule = Schedule::all();
+        return view('adminpages.Order.edit_orders', \compact('orders', 'route', 'bus', 'schedule'));
     }
 
     /**
@@ -79,7 +90,13 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $orders=Order::find($id);
+        $orders->CustomerName = $request->CustomerName;
+        $orders->schedule_id = $request->schedule_id;
+        $orders->email= $request->email;
+        $orders->phone = $request->phone;
+        $orders->save();
+        return back();
     }
 
     /**
@@ -90,6 +107,8 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $orders = Order::find($id);
+        $orders->delete();
+        return back();
     }
 }

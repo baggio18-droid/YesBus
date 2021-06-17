@@ -7,7 +7,7 @@
 	<body>	
 	<div class="gtco-loader"></div>
 	<div id="page">
-	<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/img_bg_3.jpg)">
+	<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(assets/images/img_bg_3.jpg)">
 		<div class="overlay"></div>
 		<div class="gtco-container">
 			<div class="row">
@@ -73,9 +73,9 @@
 					<div class="gtco-contact-info">
 						<h3>Contact Information</h3>
 						<ul>
-							<li class="address">198 West 21th Street, <br> Suite 721 New York NY 10016</li>
+							<li class="address">Jl Soekarno Hatta <br> Malang</li>
 							<li class="phone"><a href="tel://1234567920">+ 1235 2355 98</a></li>
-							<li class="email"><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
+							<li class="email"><a href="derogerbaggio19@gmail.com">info@yesbus.com</a></li>
 							<li class="url"><a href="https://freehtml5.co">FreeHTML5.co</a></li>
 						</ul>
 					</div>

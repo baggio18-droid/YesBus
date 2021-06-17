@@ -77,14 +77,14 @@
 							
                             <li><a href="destination" style="font-size:25px;">Destination</a></li>
                             <li class="has-dropdown">
-                                <a href="#" style="font-size:25px;">Schedules</a>
+                                <a href="{{route ('Schedules') }}" style="font-size:25px;">Schedules</a>
                                 <ul class="dropdown">
                                     <li><a href="#">Morning</a></li>
                                     <li><a href="#">Night</a></li>
                                     
                                 </ul>
                             </li>
-                            <li><a href="{{ route('orders.create') }}" style="font-size:25px;">Order</a></li>
+                            <li><a href="{{ route('Order') }}" style="font-size:25px;">Order</a></li>
                             <li><a href="contact" style="font-size:25px;">Contact</a></li>
 							<div style="float: right; margin-top: 5px">
 								<a class="btn btn-sm btn-dark" href="{{route('login')}}"><i class="fa fa-user" aria-hidden="true"></i>Admin</a>

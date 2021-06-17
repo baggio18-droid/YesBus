@@ -3,7 +3,11 @@
 @section('content')
 
 <div class="container mt-5">
-
+    @if ($success == 1)
+    <div class="alert alert-info">
+        <p>Added Successfuly. <a href="{{ route('print_pdf', $orders->id) }}">Print Pdf</a></p>
+    </div>
+    @endif
  <div class="row justify-content-center align-items-center">
  <div class="card" style="width: 24rem;">
  <div class="card-header">
@@ -27,10 +31,10 @@
  <input type="text" name="name" class="form-control" id="name" aria-describedby="Name" >
  </div>
  <div class="form-group">
-<label for="Schedule">Schedule</label>
+<label for="Schedule">Schedule </label>
 <select name="schedule_id" class="form-control">
     @foreach ($schedules as $s)
-    <option value="{{$s->id}}">Schedule: {{"$s->name"}}</option>
+    <option value="{{$s->id}}">Schedule: {{"$s->name" }} </option>
     @endforeach
 </select>
 </div>
@@ -43,7 +47,10 @@
  <input type="text" name = "phone" class="form-control">
  </div>
  <div>
- <button type="submit" class="btn btn-primary">Submit</button>
+ <button type="submit" class="btn btn-primary" >Submit
+</button>
+<a class="btn btn-primary" href="{{ route('Order') }}">Back</a>
+  </div>
  </form>
  </div>
  </div>

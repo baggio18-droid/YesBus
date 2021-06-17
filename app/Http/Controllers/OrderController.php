@@ -33,7 +33,8 @@ class OrderController extends Controller
     {
         $schedules = Schedule::latest()->get();
         $routes = Route::latest()->get();
-        return view('adminpages.Order.add_orders', \compact('routes', 'schedules'));
+        $success = 0;
+        return view('adminpages.Order.add_orders', \compact('routes', 'schedules', 'success'));
     }
 
     /**
@@ -50,7 +51,10 @@ class OrderController extends Controller
         $orders->email= $request->email;
         $orders->phone = $request->phone;
         $orders->save();
-        return back();
+        $schedules = Schedule::latest()->get();
+        $routes = Route::latest()->get();
+        $success = 1;
+        return view('adminpages.Order.add_orders', \compact('routes', 'schedules', 'orders','success'));
     }
 
     /**
@@ -116,8 +120,8 @@ class OrderController extends Controller
         $orders = Order::with('schedules')->find($id);
         $bus = Bus::find($orders->schedules->bus_id);
         $route = Route::find($bus->route_id);
-        //$pdf = PDF::loadview('adminpages.order.detail_order', compact('orders', 'route', 'bus'));
-        //return $pdf->stream();
+        $pdf = PDF::loadview('adminpages.order.detail_orderPDF', compact('orders', 'route', 'bus'));
+        return $pdf->stream();
 
     }
 }

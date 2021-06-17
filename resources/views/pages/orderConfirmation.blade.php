@@ -20,7 +20,7 @@
  </ul>
  </div>
  @endif
- <form method="post" action="{{ route('order.store', $orders->id) }}" id="myForm">
+ <form method="post" action="{{ route('Order', $orders->id) }}" id="myForm">
  @csrf
  <div class="form-group">
  <label for="Name">Customer Name</label>

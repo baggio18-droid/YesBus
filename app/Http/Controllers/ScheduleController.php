@@ -104,4 +104,10 @@ class ScheduleController extends Controller
         $schedules->delete();
         return back();
     }
+    public function search(Request $request ){
+        $search =$request->search;
+        $schedules = Schedule::where('name','LIKE','%'.$search.'%')->with('buses')->latest()->paginate(20);
+        $routes = Route::all();
+        return view('adminpages.Schedules',['schedules' => $schedules], compact('schedules', 'routes'));
+    }
 }

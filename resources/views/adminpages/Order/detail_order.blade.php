@@ -10,7 +10,7 @@
  <div class="card-body">
  <ul class="list-group list-group-flush">
  <li class="list-group-item"><b>Name: </b>{{$orders->CustomerName}}</li>
- <li class="list-group-item"><b>Day: </b>{{$orders->schedules->name}}</li>
+ <li class="list-group-item"><b>Schedule: </b>{{$orders->schedules->name}}</li>
  <li class="list-group-item"><b>Bus: </b>{{$orders->schedules->buses->name}}</li>
  <li class="list-group-item"><b>Route: </b>{{$route->name}}</li>
  <li class="list-group-item"><b>Departure: </b>{{$route->departure}}</li>
@@ -21,6 +21,7 @@
  </ul>
  </div>
  <a class="btn btn-success mt-3" href="{{ route('order') }}">Back</a>
+ <a class="btn btn-success mt-3" style="background-color: #008CBA;" href="{{ route('print_pdf', $orders->id) }}">Print PDF</a>
  </div>
  </div>
 </div>

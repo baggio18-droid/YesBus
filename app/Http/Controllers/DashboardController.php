@@ -21,4 +21,6 @@ class DashboardController extends Controller
 
     public function categories()
     { return view('adminpages.categories'); }
+    public function messages()
+    { return view('adminpages.messages'); }
 }

@@ -71,6 +71,7 @@
                                             <a class="nav-link" href="/admin/adminPages/route">Routes</a>
                                             <a class="nav-link" href="/admin/adminPages/schedule">Schedules</a>
                                             <a class="nav-link" href="/admin/adminPages/order">Orders</a>
+                                            <a class="nav-link" href="/admin/adminPages/message">Messages</a>
                                         </nav>
                                     </div>
                                 </nav>

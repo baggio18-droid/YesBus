@@ -60,14 +60,14 @@
 					</a>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="{{asset('assets/images/img_6.jpg') }}" class="fh5co-card-item image-popup">
+					<a href="{{asset('assets/images/img_2.jpg') }}" class="fh5co-card-item image-popup">
 						<figure>
 							<div class="overlay"><i class="ti-plus"></i></div>
-							<img src="assets/images/img_6.jpg" alt="Image" class="img-responsive">
+							<img src="assets/images/img_2.jpg" alt="Image" class="img-responsive">
 						</figure>
 						<div class="fh5co-text">
 							<h2>Bali</h2>
-							<p>Thrilling activities are available for you to try..</p>
+							<p>Discover the Amazing things Bali has to offer.</p>
 							<p><span class="btn btn-primary">Schedule a Trip</span></p>
 						</div>
 					</a>

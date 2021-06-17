@@ -8,6 +8,7 @@ use App\Http\Controllers\BusController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\OrderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,3 +73,7 @@ Route::get('/admin/adminPages/Order/add_orders/{id}', [OrderController::class, '
 
 Route::get('/admin/adminPages/Order/detail_ordersPDF/{id}', [OrderController::class, 'print_pdf'])->name('print_pdf');
 
+//messages
+Route::get('/admin/adminPages/message', [PagesController::class, 'index'])->name('messages');
+Route::post('/contact', [PagesController::class, 'store'])->name('messages.store');
+Route::get('/contact{id}', [PagesController::class, 'destroy'])->name('messages.destroy');

@@ -33,11 +33,12 @@
 				<div class="col-md-12">
 					<div class="col-md-6 animate-box">
 					<h3>Get In Touch</h3>
-					<form action="#">
+					<form method="post" action="{{route('messages.store')}}">
+						@csrf
 						<div class="row form-group">
 							<div class="col-md-12">
-								<label class="sr-only" for="name">Name</label>
-								<input type="text" id="name" class="form-control" placeholder="Your firstname">
+								<label class="sr-only" for="firstname">Name</label>
+								<input type="text" id="firstname" name="firstname" class="form-control" placeholder="Your firstname">
 							</div>
 							
 						</div>
@@ -45,21 +46,21 @@
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label class="sr-only" for="email">Email</label>
-								<input type="text" id="email" class="form-control" placeholder="Your email address">
+								<input type="text" name="email" id="email" class="form-control" placeholder="Your email address">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label class="sr-only" for="subject">Subject</label>
-								<input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
+								<input type="text"  name="subject" id="subject" class="form-control" placeholder="Your subject of this message">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
-								<label class="sr-only" for="message">Message</label>
-								<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Write us something"></textarea>
+								<label class="sr-only" for="messages">Message</label>
+								<textarea name="messages" id="messages" cols="30" rows="10" class="form-control" placeholder="Write us something"></textarea>
 							</div>
 						</div>
 						<div class="form-group">

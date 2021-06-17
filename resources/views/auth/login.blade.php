@@ -1,9 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.yesbus')
 @section('content')
+<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url(assets/images/image_07.jpg)">
+<div class="overlay"></div>
+<div class="gtco-container">
+<div class="row">
+<div class="col-md-12 col-md-offset-1 text-left">
+
+<div class="row row-mt-15em">
+<div class="col-md-10 mt-text animate-box" data-animate-effect="fadeInUp">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" >
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
@@ -39,10 +47,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-4 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
@@ -69,4 +76,13 @@
         </div>
     </div>
 </div>
+						</div>
+					</div>
+</div>
+</div>
+</div>
+</div>
+
+</header>
+
 @endsection

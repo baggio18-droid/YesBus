@@ -31,10 +31,11 @@ Route::get('/destination', [PagesController::class, 'destination']);
 Route::get('/order', [PagesController::class, 'order'])->name('Order');
 Route::get('/schedules', [PagesController::class, 'schedules'])->name('Schedules');
 Route::get('/contact', [PagesController::class, 'contact']);
+
+Route::middleware(['auth', 'admin'])->group(function(){
 Route::get('/admin/adminPages', [DashboardController::class, 'home']);
 Route::get('/admin/adminPages/order', [DashboardController::class, 'orders']);
 Route::get('/admin/adminPages/category', [DashboardController::class, 'categories']);
-
 //Buses Data
 Route::get('/admin/adminPages/bus', [BusController::class, 'index'])->name('buses');
 Route::get('/admin/adminPages/Bus/add_buses', [BusController::class, 'create'])->name('buses.create');
@@ -61,7 +62,7 @@ Route::get('/admin/adminPages/Route/detail_routes/{id}', [RouteController::class
 Route::get('/admin/adminPages/Route/edit_routes/{id}', [RouteController::class, 'edit'])->name('routes.edit');
 Route::post('/admin/adminPages/Route/edit_routes/{id}', [RouteController::class, 'update'])->name('routes.update');
 Route::get('/admin/adminPages/Route/add_routes/{id}', [RouteController::class, 'destroy'])->name('routes.destroy');
-
+});
 //Order Data
 Route::get('/admin/adminPages/order', [OrderController::class, 'index'])->name('order');
 Route::get('/admin/adminPages/Order/add_orders', [OrderController::class, 'create'])->name('orders.create');

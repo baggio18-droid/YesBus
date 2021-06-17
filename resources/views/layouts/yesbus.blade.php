@@ -78,18 +78,45 @@
                             <li><a href="destination" style="font-size:25px;">Destination</a></li>
                             <li class="has-dropdown">
                                 <a href="{{route ('Schedules') }}" style="font-size:25px;">Schedules</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">Morning</a></li>
-                                    <li><a href="#">Night</a></li>
-                                    
-                                </ul>
                             </li>
                             <li><a href="{{ route('Order') }}" style="font-size:25px;">Order</a></li>
                             <li><a href="contact" style="font-size:25px;">Contact</a></li>
-							<div style="float: right; margin-top: 5px">
-								<a class="btn btn-sm btn-dark" href="{{route('login')}}"><i class="fa fa-user" aria-hidden="true"></i>Admin</a>
-							</div>
-                        </ul>	
+
+						@guest
+                            @if (Route::has('login'))
+                                <li>
+                                    <a href="{{ route('login') }}" style="font-size:25px;">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+                            
+                            @if (Route::has('register'))
+                                <li>
+                                    <a href="{{ route('register') }}" style="font-size:25px;">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+						<li class="dropdown">
+                              
+							  <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="font-size:25px;">
+								  Account
+							  </a>
+
+							  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								  <a class="dropdown-item" href="{{ route('logout') }}"
+									 onclick="event.preventDefault();
+												   document.getElementById('logout-form').submit();" style='color:black;'>
+									  {{ __('Logout') }}
+								  </a>
+
+								  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+									  @csrf
+								  </form>
+							  </div>
+						  </li>
+						  	@if (Auth::user()->is_admin == 1)
+						  		<li><a href="/admin/adminPages" style="font-size:25px;">AdminPage</a></li>
+							@endif
+                        @endguest
                     </div>
                 </div>
             </div>

@@ -101,7 +101,8 @@ class OrderController extends Controller
         $orders->email= $request->email;
         $orders->phone = $request->phone;
         $orders->save();
-        return back();
+        $success = 1;
+        return view('adminpages.order.order_confirm', compact('orders', 'route', 'bus', 'success'));
     }
 
     /**
@@ -114,8 +115,19 @@ class OrderController extends Controller
     {
         $orders = Order::find($id);
         $orders->delete();
-        return back();
+        $success=0;
+        return view('adminpages.order.message', compact('success'));
     }
+
+    public function confirmation($id)
+    {
+        $orders = Order::with('schedules')->find($id);
+        $bus = Bus::find($orders->schedules->bus_id);
+        $route = Route::find($bus->route_id);
+        $success = 0;
+        return view('adminpages.order.order_confirm', compact('orders', 'route', 'bus', 'success'));
+    }
+
     public function print_pdf($id){
         $orders = Order::with('schedules')->find($id);
         $bus = Bus::find($orders->schedules->bus_id);
@@ -123,5 +135,12 @@ class OrderController extends Controller
         $pdf = PDF::loadview('adminpages.order.detail_orderPDF', compact('orders', 'route', 'bus'));
         return $pdf->stream();
 
+    }
+
+    public function messages($id)
+    {
+        $orders = Order::with('schedules')->find($id);
+        $success=1;
+        return view('adminpages.order.message', compact('success', 'orders'));
     }
 }

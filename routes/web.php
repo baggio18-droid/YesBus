@@ -72,9 +72,12 @@ Route::get('/admin/adminPages/Order/edit_orders/{id}', [OrderController::class, 
 Route::post('/admin/adminPages/Order/edit_orders/{id}', [OrderController::class, 'update'])->name('orders.update');
 Route::get('/admin/adminPages/Order/add_orders/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
 
+Route::get('/admin/adminPages/Order/order_confirm/{id}', [OrderController::class, 'confirmation'])->name('orders.confirm');
 Route::get('/admin/adminPages/Order/detail_ordersPDF/{id}', [OrderController::class, 'print_pdf'])->name('print_pdf');
 
 //messages
 Route::get('/admin/adminPages/message', [PagesController::class, 'index'])->name('messages');
 Route::post('/contact', [PagesController::class, 'store'])->name('messages.store');
 Route::get('/contact{id}', [PagesController::class, 'destroy'])->name('messages.destroy');
+
+Route::get('/admin/adminPages/Order/message/{id}', [OrderController::class, 'messages'])->name('messages.order');

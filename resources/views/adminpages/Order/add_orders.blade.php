@@ -5,7 +5,7 @@
 <div class="container mt-5">
     @if ($success == 1)
     <div class="alert alert-info">
-        <p>Added Successfuly. <a href="{{ route('print_pdf', $orders->id) }}">Print Pdf</a></p>
+        <p>Added Successfuly. <a href="{{ route('orders.confirm', $orders->id) }}">Confirm your order</a></p>
     </div>
     @endif
  <div class="row justify-content-center align-items-center">

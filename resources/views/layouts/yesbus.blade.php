@@ -69,7 +69,7 @@
 				
                 <div class="row">
                     <div class="col-sm-4 col-xs-12 menu-1">
-                        <div style="margin-top:5px"><a href="/" style="font-size:40px; opacity:0.8;"><i>YesBus.</i></a></div>
+                        <div style="margin-top:5px"><a href="/" style="font-size:40px; opacity:0.8;"><i>YesBus</i></a></div>
                     </div>
                     <div class="col-xs-8 text-right menu-1">
 						

@@ -12,6 +12,9 @@
 			font-size: 9pt;
 		}
 	</style>
+	<h3><i>
+	YesBus
+	</i></h3>
 	<center>
 		<h5>{{$orders->CustomerName}}'s Order Detail</h4>
 	</center>
@@ -24,7 +27,7 @@
 				<th>Bus</th>
 				<th>Route</th>
 				<th>Departure</th>
-                <th>Departure</th>
+                <th>Destination</th>
                 <th>Departure Time</th>
                 <th>Arrival Time</th>
                 <th>Price</th>

@@ -38,6 +38,11 @@
  <div><b>{{$orders->phone}}</b></div>
  </div>
  <div>
+ <div class="form-group">
+ <label>Price</label>
+ <div><b>Rp. {{number_format($orders->schedules->price, 2, ',', '.')}}</b></div>
+ </div>
+ <div>
 <a class="btn btn-primary" href="{{ route('messages.order', $orders->id) }}">Submit</a>
 <a class="btn btn-primary" href="{{ route('orders.destroy', $orders->id) }}">Back</a>
   </div>

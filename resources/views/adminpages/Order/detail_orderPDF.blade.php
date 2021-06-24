@@ -43,7 +43,7 @@
 				<td>{{$route->destination}}</td>
 				<td>{{$orders->schedules->departure_time}}</td>
                 <td>{{$orders->schedules->scheduled_arrival_time}}</td>
-                <td>{{$orders->schedules->price}}</td>
+                <td>Rp. {{number_format($orders->schedules->price, 2, ',', '.')}}</td>
 			</tr>
 		</tbody>
 	</table>
